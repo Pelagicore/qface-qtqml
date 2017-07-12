@@ -2,7 +2,6 @@
 # Copyright (c) Pelagicore AB 2016
 
 import click
-import logging
 import logging.config
 import yaml
 from path import Path
@@ -14,9 +13,12 @@ from qface.watch import monitor
 
 here = Path(__file__).dirname()
 
-logging.config.dictConfig(yaml.load(open(here / 'log.yaml')))
+logging.basicConfig()
 
-log = logging.getLogger(__file__)
+with open('log.yaml', 'r') as fp:
+    logging.config.dictConfig(yaml.load(fp))
+
+log = logging.getLogger(__name__)
 
 
 def run(src, dst):
@@ -60,6 +62,7 @@ def run(src, dst):
 def app(src, dst, reload):
     """Takes several files or directories as src and generates the code
     in the given dst directory."""
+    log.debug('app called')
     if reload:
         script = Path(__file__).abspath()
         monitor(script, src, dst)

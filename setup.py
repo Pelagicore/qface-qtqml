@@ -18,12 +18,15 @@ setup(
     keywords='qt code generator framework',
     packages=find_packages(),
     include_package_data=True,
+    package_data={
+        '': ['*.h', '*.cpp', '*.pro', '*.pri', '*.qml', '*.js', '*.j2', 'qmldir']
+    },
     install_requires=[
         'qface',
     ],
     entry_points={
         'console_scripts': [
-            'qtqml = qtqml:app'
+            'qface-qtqml = qtqml.qtqml:app'
         ],
     },
 )
