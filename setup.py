@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='qface-qtqml',
-    version='1.0',
+    version='1.1',
     description='Qt QML generator based on the QFace library',
     url='https://github.com/Pelagicore/qface-qtqml',
     author='jryannel',
