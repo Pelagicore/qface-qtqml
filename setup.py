@@ -23,6 +23,7 @@ setup(
     },
     install_requires=[
         'qface',
+        'colorlog',
     ],
     entry_points={
         'console_scripts': [
