@@ -16,7 +16,7 @@ here = Path(__file__).dirname()
 
 logging.basicConfig()
 
-with open('log.yaml', 'r') as fp:
+with open(here / 'log.yaml', 'r') as fp:
     logging.config.dictConfig(yaml.load(fp))
 
 log = logging.getLogger(__name__)
