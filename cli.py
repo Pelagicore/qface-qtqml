@@ -172,6 +172,7 @@ def upload():
     sh('twine upload dist/*')
     Path('build').rmtree_p()
 
+
 @cli.command()
 def pack():
     Path('build').rmtree_p()
@@ -190,5 +191,4 @@ def docs_serve():
 
 
 if __name__ == '__main__':
-    log.debug('Hello')
     cli()
