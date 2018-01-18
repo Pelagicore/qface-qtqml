@@ -1,12 +1,18 @@
 from setuptools import setup, find_packages
+from path import Path
+from qtqml import __about__ as about
+
+here = Path(__file__).abspath().dirname()
+readme = Path(here / 'README.md').text()
 
 setup(
-    name='qface-qtqml',
-    version='1.1',
-    description='Qt QML generator based on the QFace library',
-    url='https://github.com/Pelagicore/qface-qtqml',
-    author='jryannel',
-    author_email='juergen@ryannel.org',
+    name=about.__title__,
+    version=about.__version__,
+    description=about.__description__,
+    long_description=readme,
+    url=about.__url__,
+    author=about.__author__,
+    author_email=about.__author_email__,
     license='MIT',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
@@ -15,14 +21,16 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
     ],
-    keywords='qt code generator framework',
+    keywords='qt qml generator',
     packages=find_packages(),
     include_package_data=True,
-    package_data={
-        '': ['*.h', '*.cpp', '*.pro', '*.pri', '*.qml', '*.js', '*.j2', 'qmldir']
-    },
     install_requires=[
-        'qface',
+        'qface>=1.9',
+        'colorlog',
+        'click',
+        'PyYAML',
+        'Jinja2',
+        'path.py',
     ],
     entry_points={
         'console_scripts': [
