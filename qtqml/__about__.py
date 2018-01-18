@@ -1,4 +1,4 @@
-__title__ = 'qface-1ml'
+__title__ = 'qface-qtqml'
 __version__ = '1.1'
 __description__ = 'Qt QML generator based on the QFace library'
 __url__ = 'https://github.com/Pelagicore/qface-qtqml'

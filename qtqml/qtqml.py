@@ -4,20 +4,16 @@
 import click
 import logging
 import logging.config
-import yaml
 from path import Path
 
 from qface.generator import FileSystem, Generator
 from qface.helper.qtqml import Filters
 from qface.watch import monitor
-
+from qface.contrib.logging import setup_log
 
 here = Path(__file__).dirname()
 
-logging.basicConfig()
-
-with open(here / 'log.yaml', 'r') as fp:
-    logging.config.dictConfig(yaml.load(fp))
+setup_log(path=here / '../logging.yml')
 
 log = logging.getLogger(__name__)
 
@@ -59,7 +55,7 @@ def run(src, dst):
 @click.command()
 @click.option('--reload/--no-reload', default=False)
 @click.argument('src', nargs=-1, type=click.Path(exists=True))
-@click.argument('dst', nargs=1, type=click.Path(exists=True))
+@click.argument('dst', nargs=1, type=click.Path(exists=False, file_okay=False))
 def app(src, dst, reload):
     """Takes several files or directories as src and generates the code
     in the given dst directory."""

@@ -7,22 +7,16 @@ from watchdog.events import FileSystemEventHandler
 from watchdog.observers import Observer
 from path import Path
 import time
-import os
-import yaml
-import logging
-import logging.config
 from livereload import Server, shell
+from qface.contrib.logging import setup_log
+import logging
+
+here = Path(__file__).dirname()
 
 
-here = os.path.dirname(__file__)
+setup_log(path=here / 'logging.yml')
 
-logging.basicConfig()
-with open(here / 'log.yaml', 'r') as fp:
-    logging.config.dictConfig(yaml.load(fp))
 log = logging.getLogger(__name__)
-
-
-os.environ['PYTHONPATH'] = os.getcwd()
 
 
 def sh(cmd, all=False, **kwargs):
@@ -32,7 +26,7 @@ def sh(cmd, all=False, **kwargs):
 
 @click.group()
 def cli():
-    pass
+    log.debug('call cli')
 
 
 @cli.command()
@@ -191,4 +185,5 @@ def docs_serve():
 
 
 if __name__ == '__main__':
+    log.info('call main')
     cli()

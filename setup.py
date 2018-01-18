@@ -25,7 +25,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'qface>=1.8',
+        'qface>=1.9',
         'colorlog',
         'click',
         'PyYAML',
