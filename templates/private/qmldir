@@ -1,4 +1,4 @@
-{{module_name}}Module 1.0 {{module_name}}Module.js
+{{module.module_name}}Module 1.0 {{module.module_name}}Module.js
 {% for interface in module.interfaces %}
 Abstract{{interface}} 1.0 Abstract{{interface}}.qml
 {% endfor %}
