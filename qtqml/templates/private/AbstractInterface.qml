@@ -20,13 +20,13 @@ QtObject {
 {% if property.comment %}
     {{ property.comment }}
 {% endif %}
-    readonly property {{property|propertyType}} {{property}} : _{{property}}
-    property {{property|propertyType}} _{{property}} : {{property|defaultValue}}
+    readonly property {{property|qml.propertyType}} {{property}} : _{{property}}
+    property {{property|qml.propertyType}} _{{property}} : {{property|qml.defaultValue}}
 {% else %}
 {% if property.comment %}
     {{ property.comment }}
 {% endif %}
-    property {{property|propertyType}} {{property}} : {{property|defaultValue }}
+    property {{property|qml.propertyType}} {{property}} : {{property|qml.defaultValue }}
 {% endif %}
 {% endfor %}
 
@@ -40,7 +40,7 @@ QtObject {
 {% for signal in interface.signals %}
     signal {{signal}}(
         {%- for parameter in signal.parameters %}
-            {{- parameter.type|propertyType }} {{ parameter.name -}}
+            {{- parameter.type|qml.propertyType }} {{ parameter.name -}}
             {% if not loop.last %}, {% endif %}
         {% endfor -%}
     )

@@ -19,7 +19,7 @@ var {{member}} = {{member.value}};
 function create{{struct}}() {
     return {
         {% for field in struct.fields %}
-        {{field}} : {{field | defaultValue}},
+        {{field}} : {{field | qml.defaultValue}},
         {% endfor %}
     };
 }
