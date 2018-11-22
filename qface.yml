@@ -1,6 +1,6 @@
 project:
     module:
-        destination: '{{module|identifier}}'
+        path: '{{module|identifier}}'
         documents:
             - 'qmldir'
             - 'private/qmldir'
