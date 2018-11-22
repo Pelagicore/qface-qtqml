@@ -1,0 +1,12 @@
+project:
+    module:
+        destination: '{{module|identifier}}'
+        documents:
+            - 'qmldir'
+            - 'private/qmldir'
+            - 'private/{{module_name}}Module.js': 'private/module.js'
+    interface:
+        documents:
+            - 'private/Abstract{{interface}}.qml': 'private/AbstractInterface.qml'
+        preserve:
+            - '{{interface}}.qml': 'Interface.qml'
